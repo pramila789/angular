@@ -23,6 +23,11 @@ getcusonID(CustomerID:any)
 {
   return this.httpclient.get(this.url+"/getrecord?CustomerID="+CustomerID);
 }
+getcustonID(CustomerID:any)
+{
+  return this.httpclient.get(this.url+"/getrecord?CustomerID="+CustomerID);
+}
+
 updatecustomer(c:any)
 {
     const headers = { 
@@ -46,17 +51,7 @@ addcustomer(cus:any)
 };
   return this.httpclient.post(this.url+"/register",cus,{headers});
 }
-viewcustomer(c:any)
-{
-    const headers = { 
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-      'Authorization': '',
-  };
-return this.httpclient.put(this.url+"/",c,{headers});
-}
+
 
 
 }

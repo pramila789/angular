@@ -29,6 +29,15 @@ export class ViewComponent implements OnInit {
         
       }
     );
+    this.CustomerID=this.aR.snapshot.paramMap.get("CustomerID");
+    this.myservice.getcustonID(this.CustomerID).subscribe((r:any)=>{
+      this.responseData = r;
+      this.CustomerID=r.customerID;
+      this.addcustomer.controls['FirstName'].setValue(this.responseData?.firstName);
+        this.addcustomer.controls['LastName'].setValue(this.responseData?.lastName);
+        this.addcustomer.controls['Country'].setValue(this.responseData?.country);
+    
+    });
 
  
   }
@@ -46,19 +55,7 @@ export class ViewComponent implements OnInit {
     return this.addcustomer.get('Country');
   }
   
-  
-  
-  onSubmit()
-  {
-    
-    this.data=this.addcustomer.value;
-    this.data.CustomerID=this.CustomerID;
-      this.myservice.viewcustomer(this.data).subscribe(res=>{this.result=res;
-     
-        
-      });
-    //  this.router.navigate(['/dashboard']);
-      }
+
     }
   
   interface resultData{

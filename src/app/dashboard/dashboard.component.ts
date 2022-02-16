@@ -44,6 +44,6 @@ addcus()
 viewcus(CustomerID :any)
 {
   this.newId=CustomerID;
-  this.router.navigate(['/dashboard']);
+  this.router.navigate(['/view',CustomerID]);
 }
 }
